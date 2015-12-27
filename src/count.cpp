@@ -12,14 +12,16 @@ ERROR CASES: Return -1 in error cases.
 NOTES:
 */
 int count(int num1, int num2) {
-	int n, i = 1;
-	n = num1;
-	if (num1 > num2)
+	
+	int i,cnt=0;
+	if (num1 == 0)
 		return -1;
-	while (n <= num2)
+	if (num1 > num2)
+		return 0;
+	for (i = num1; i <= num2; i++)
 	{
-		i += 1;
-		n = n*i;
+		if (i%num1 == 0)
+			cnt += 1;
 	}
-	return i;
+	return cnt;
 }

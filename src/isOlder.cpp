@@ -13,6 +13,27 @@ ERROR CASES: Return -1 if any DOB is invalid.
 NOTES: 		Don't use any built-in C functions for comparisions. You are free to write any helper functions.
 */
 
+#include<ctype.h>
+int convert(char *str)
+{
+	int i,sum=0;
+	for(i=0;str[i]!='\0';i++)
+	{
+		if(str[i]=='-')
+			;
+		else if(isdigit(str[i]))
+			sum=sum*10+str[i]-'0';
+	}
+	return sum;
+}
+
 int isOlder(char *dob1, char *dob2) {
-	return 0;
+
+	if(convert(dob1)<convert(dob2))
+		return 1;
+	else if(convert(dob1)>convert(dob2))
+		return 2;
+	else 
+		return 0;
+
 }
